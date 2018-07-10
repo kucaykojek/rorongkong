@@ -1,0 +1,18 @@
+// ==========================================================================
+// Simple Text Sizes
+// ==========================================================================
+
+// Here we set a variable assuming that default and module settings
+// are not set globally. If they have been previously been defined,
+// the following variable will be overriden and will be set to `true`.
+$imported-core-settings: false !default;
+
+@if ($imported-core-settings == false) {
+  @warn 'Oops! Have you included core settings file?';
+}
+
+@for $size from 8 through 30 {
+  .#{$global-utility-namespace}text--#{$size} {
+    font-size: #{$size}px !important;
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "rorongkong",
+  "version": "1.0.0",
+  "description": "Starting kit to create awesomeness",
+  "main": "gulpfile.js",
+  "scripts": {
+    "clean": "rimraf public/css public/maps",
+    "dev": "npm run clean && cross-env NODE_ENV=development gulp",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp",
+    "start": "node server/index.js"
+  },
+  "author": "Asep Fajar Nugraha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kucaykojek/rorongkong.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "cross-env": "^5.1.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
+    "rimraf": "^2.6.2"
+  }
+}

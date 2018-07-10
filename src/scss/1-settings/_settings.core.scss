@@ -1,0 +1,57 @@
+// Code settings
+
+// Namespace
+$global-object-namespace:     'o-';
+$global-component-namespace:  'c-';
+$global-utility-namespace:    'u-';
+
+// Font & Typography
+$global-font-family: Roboto, Helvetica, Arial, sans-serif;
+$global-font-size:    14px !default;
+$global-font-weight:  400 !default;
+$global-line-height:  1.2 !default;
+$global-background-color: #fff;
+$global-text-color: #333;
+
+// Font Weight
+$global-font-weight-list: (
+  normal:     400,
+  medium:     500,
+  bold:       700
+);
+
+// Spacing & Levels
+$global-spacing-unit:   16px;
+$global-spacing-levels: 10; // 1 = 4, 2 = 8 ... 10 = 40
+
+$global-spacing-unit-factor-micro:      .25;
+$global-spacing-unit-factor-tiny:       .5;
+$global-spacing-unit-factor-small:      .75;
+$global-spacing-unit-factor-medium:     1;
+$global-spacing-unit-factor-large:      1.5;
+$global-spacing-unit-factor-huge:       2;
+
+//
+// Private/framework only reassignment. Do not alter anything below.
+// ==========================================================================
+
+// Micro   = 4
+// Tiny    = 8
+// Small   = 12
+// Medium  = 16
+// Large   = 24
+// Huge    = 32
+
+$global-spacing-unit--micro:  round($global-spacing-unit * $global-spacing-unit-factor-micro);
+$global-spacing-unit--tiny:   round($global-spacing-unit * $global-spacing-unit-factor-tiny);
+$global-spacing-unit--small:  round($global-spacing-unit * $global-spacing-unit-factor-small);
+$global-spacing-unit--medium: round($global-spacing-unit * $global-spacing-unit-factor-medium);
+$global-spacing-unit--large:  round($global-spacing-unit * $global-spacing-unit-factor-large);
+$global-spacing-unit--huge:   round($global-spacing-unit * $global-spacing-unit-factor-huge);
+
+// Common
+$support-old-ie: false !default;
+
+// If we have included this file, set a variable to tell the rest of the
+// framework that we have some base settings.
+$imported-core-settings: true;

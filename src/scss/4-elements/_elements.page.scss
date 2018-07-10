@@ -1,0 +1,28 @@
+// Page style
+
+html {
+  min-height: 100%;
+
+  font-family: $global-font-family;
+  font-size: ($global-font-size / 16px) * 1em; // [1]
+  font-weight: $global-font-weight;
+  line-height: $global-line-height;
+
+  background-color: $global-background-color;
+  color: $global-text-color;
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: url('../images/pattern.png') repeat;
+}
+
+body {
+  height: 100%; // [2]
+}

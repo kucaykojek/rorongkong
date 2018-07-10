@@ -1,0 +1,12 @@
+// ==========================================================================
+// Clearfix hack by Nicolas Gallagher (https://github.com/necolas)
+// ==========================================================================
+
+@mixin clearfix {
+  &::before,
+  &::after {
+    content: " "; // sass-lint:disable-line quotes
+    display: table;
+  }
+  &::after { clear: both; }
+}

@@ -1,0 +1,22 @@
+// ==========================================================================
+// Float
+// ==========================================================================
+
+// Here we set a variable assuming that default and module settings
+// are not set globally. If they have been previously been defined,
+// the following variable will be overriden and will be set to `true`.
+$imported-core-settings: false !default;
+
+@if ($imported-core-settings == false) {
+  @warn 'Oops! Have you included core settings file?';
+}
+
+.#{$global-utility-namespace}float {
+  &-left {
+    float: left !important;
+  }
+
+  &-right {
+    float: right !important;
+  }
+}
