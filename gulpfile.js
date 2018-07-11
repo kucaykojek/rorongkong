@@ -19,7 +19,9 @@ gulp.task("browserSync", function () {
 });
 
 gulp.task("html", function () {
-  return gulp.src("public/*.html")
+  return gulp
+    .src(["src/html/*.html", "src/html/**/*.html"])
+    .pipe(gulp.dest("public"))
     .pipe(browserSync.stream());
 });
 
@@ -36,23 +38,25 @@ gulp.task("scripts", function () {
 });
 
 gulp.task("styles", function () {
-  gulp.src(["src/scss/*.scss", "src/scss/**/*.scss"])
+  gulp
+    .src(["src/scss/*.scss", "src/scss/**/*.scss"])
     .pipe(sourcemaps.init())
 
     // scss output compressed if production or expanded if development
-    .pipe(gulpif(env === "production", sass({ outputStyle: "compressed" }),
-      sass({ outputStyle: "expanded" })))
-    .on("error", gutil.log.bind(gutil, gutil.colors.red(
-      "\n\n*********************************** \n" +
-      "SASS ERROR:" +
-      "\n*********************************** \n\n"
-    )))
-    .pipe(autoprefixer({
-      browsers: ["last 3 versions"],
-      cascade: false,
-    }))
+    .pipe(gulpif(env === "production", sass({
+          outputStyle: "compressed"
+        }), sass({ outputStyle: "expanded" })))
+    .on("error", gutil.log.bind(gutil, gutil.colors.red("\n\n*********************************** \n" + "SASS ERROR:" + "\n*********************************** \n\n")))
+    .pipe(autoprefixer({ browsers: ["last 3 versions"], cascade: false }))
     .pipe(gulpif(env === "development", sourcemaps.write("../maps")))
     .pipe(gulp.dest("public/css"))
+    .pipe(browserSync.stream());
+});
+
+gulp.task("image", function() {
+  return gulp
+    .src("src/img/*")
+    .pipe(gulp.dest("public/img"))
     .pipe(browserSync.stream());
 });
 
@@ -65,9 +69,18 @@ function deleteMapsFolder() {
 }
 
 gulp.task("watch", function () {
-  gulp.watch("public/*.html", ["html"]);
+  gulp.watch("src/img/*", ["image"]);
+  gulp.watch(["src/html/*.html", "src/html/**/*.html"], ["html"]);
   gulp.watch(["src/scss/*.scss", "src/scss/**/*.scss"], ["styles"]);
   gulp.watch(["src/js/*.js", "src/js/**/*.js"], ["scripts"]);
 });
 
-gulp.task("default", ["scripts", "styles", "browserSync", "clean:maps", "watch"]);
+gulp.task("default", [
+  "html",
+  "styles",
+  "scripts",
+  "image",
+  "browserSync",
+  "clean:maps",
+  "watch"
+]);

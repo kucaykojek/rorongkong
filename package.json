@@ -4,10 +4,9 @@
   "description": "Starting kit to create awesomeness",
   "main": "gulpfile.js",
   "scripts": {
-    "clean": "rimraf public/css public/js public/maps",
+    "clean": "rimraf public",
     "dev": "npm run clean && cross-env NODE_ENV=development gulp",
-    "build": "npm run clean && cross-env NODE_ENV=production gulp",
-    "start": "node server/index.js"
+    "build": "npm run clean && cross-env NODE_ENV=production gulp"
   },
   "author": "Asep Fajar Nugraha",
   "repository": {
