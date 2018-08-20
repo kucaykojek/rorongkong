@@ -5,6 +5,7 @@ const gulpif = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 const del = require('del');
 
 const env = process.env.NODE_ENV;
@@ -38,6 +39,7 @@ gulp.task('scripts', function () {
       'src/js/**/*.js'
     ])
     .pipe(babel({ presets: ['babel-preset-env'] }))
+    .pipe(gulpif(env === 'production', uglify(), false))
     .pipe(gulp.dest('public/js'))
     .pipe(gulpif(env === 'development', browserSync.stream(), false));
 });
