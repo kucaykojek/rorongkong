@@ -31,7 +31,7 @@ gulpfile.js # Gulp file
 Adding more directory one level inside `src`? Don't forget to add few lines to automate the task in `gulpfile.js`
 
 #### Features
-- Browsersync - For automating reload page & sync on different devices
+- BrowserSync - For automating reload page & sync on different devices
 - Gulp - For automating tasks
 - Support **ES6** for your Javascript
 - Support **Sass** for your Stylesheet
