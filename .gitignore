@@ -1,5 +1,3 @@
-public
-
 # Packages #
 *.7z
 *.dmg
@@ -38,6 +36,7 @@ dist
 build
 tmp
 vendor
+public
 
 # Linter #
 .sass-lint.yml
